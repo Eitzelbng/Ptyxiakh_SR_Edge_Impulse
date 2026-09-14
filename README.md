@@ -116,7 +116,7 @@ Deployment
 Quantized (int8) => Build
 
 --------------
-Importing Custom Edge-Impulse library export
+Importing Custom Edge-Impulse library
 --------------
  
 After building your own custom Edge Impulse library you can import it by replacing 
