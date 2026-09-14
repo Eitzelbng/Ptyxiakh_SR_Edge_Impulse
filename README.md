@@ -21,6 +21,77 @@ This project incorporates and builds upon the following open-source software, li
 
 To create your own custom Edge Impulse library export please refer to official guides made by Edge Impulse.
 
+PROCESS USED IN THIS EXAMPLE: 
+
+Samples taken from the ESC-50 Dataset were downscaled at 16khz then uploaded to Data Acquisition using 3rd party programs
+
+EDGE IMPULSE PROFILE
+
+Impulse Design
+
+--------------
+Create Impulse
+--------------
+
+|TIME SERIES DATA|
+Window Size: 1000ms
+Window Stride: 500ms
+Frequency: 16000 (16khz)
+Zero Pad data: ✅
+Handling multi-label samples: Use label at the end of window
+Train on data subset: 100%
+
+|Add a Processing block|
+Add processing block: Audio MFE
+
+|Add a learning block|
+Classification
+
+--------------
+MFE
+--------------
+
+Parameters
+
+Frame length: 0.06
+Frame stride: 0.015
+Filter number: 51
+FFT length: 512
+Low frequency: 80
+High frequency: 8000
+Noise floor (db): -100
+    ||
+  \ || /
+   \||/
+    \/
+Generate Features
+
+--------------
+Classifier
+--------------
+Neural Network Settings
+
+Number of training cycles: 150
+Learning rate: 0.003 
+Training processor: CPU
+Validation set size: 20%
+Batch size: 32
+Profile int8 model: ✅
+
+Neural network architecture
+
+Reshape layer (51 columns)
+2D conv / pool layer (8 filters, 3 kernel size, 1 layer)
+Dropout (rate 0.5)
+2D conv / pool layer (16 filters, 3 kernel size, 1 layer)
+Dropout (rate 0.5)
+Flatten layer
+
+--------------
+Deployment
+--------------
+Quantized (int8) => Build
+ 
 After building your own custom Edge Impulse library you can import it by replacing 
 
 A) The contents of the Transit/Libraries/Edge_Impulse with the extracted contents of your own Edge model.
