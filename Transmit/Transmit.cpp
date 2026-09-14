@@ -240,7 +240,6 @@ void core1_entry()
 
 int main()
 {
-    // ... your initialization code stays exactly the same ...
     stdio_init_all();
     sleep_ms(5000);
     
