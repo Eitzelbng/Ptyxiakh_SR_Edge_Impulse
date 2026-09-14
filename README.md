@@ -121,7 +121,7 @@ Importing Custom Edge-Impulse library
  
 After building your own custom Edge Impulse library you can import it by replacing 
 
-A) The contents of the Transit/Libraries/Edge_Impulse with the extracted contents of your own Edge model.
+A) The contents of Transit/Libraries/Edge_Impulse with the extracted contents of your own Edge model.
 
 B) All instances of tflite_learn_794595_164. In the main files like Transmit.cpp and CMakeLists.txt to your own generated tflite namefile (you can find it on your exported file in Edge_Impulse/tflite-model/(here)).
 
