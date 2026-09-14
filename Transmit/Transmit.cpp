@@ -60,7 +60,6 @@
 
 #include "i2s.pio.h"
 #include "Libraries/Edge_Impulse/edge-impulse-sdk/classifier/ei_run_classifier.h"
-#include "Libraries/Feature_samples.h"
 
 #include "Libraries/Edge_Impulse/tflite-model/tflite_learn_794595_164.h"
 
