@@ -9,12 +9,6 @@
 #include "Libraries/sx1276/LoRa-RP2040.h"
 #include "ehe.h"
 
-// SPI Defines
-// We are going to use SPI 0, and allocate it to the following GPIO pins
-// Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
-
-//LCD Display
-
 
 uint8_t rx_buffer[256] = {0};
 
@@ -48,7 +42,7 @@ char Accuracy[] = "Accuracy %:";
 
 int main() 
 {
-    char lora_buffer[64]; // Temp Buffer
+    char lora_buffer[64];
     stdio_init_all();
     sleep_ms(3000);
     LoRa.setPins(17, 20, 21);
@@ -76,7 +70,7 @@ int main()
         int packetSize = LoRa.parsePacket();
 
         if (packetSize) {
-            char lora_buffer_new[64]; // Temp Buffer
+            char lora_buffer_new[64];
             
             int i = 0;
     
@@ -87,7 +81,7 @@ int main()
                     lora_buffer_new[i++] = c;
                 }
             }
-            lora_buffer_new[i] = '\0'; // Null-terminate
+            lora_buffer_new[i] = '\0'; 
             if(strcmp(lora_buffer,lora_buffer_new) != 0)
             {
                 int index = 0;
@@ -105,7 +99,6 @@ int main()
             }
         }
         sleep_ms(250);
-             //sleep_ms alt
     }
 }
     

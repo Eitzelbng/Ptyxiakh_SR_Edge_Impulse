@@ -1,6 +1,5 @@
 #define LORA_MODE_TRANSMITER
-//#define SampleMode
-// #define PRINT
+
 
 // LORA DEFINES
 
@@ -24,26 +23,20 @@
 #define PIO_SEL_PIN 13
 #define PIO_DO_PIN 10
 
-// #define PIO_WS_CLOCK_TICKS 30 // 16 khz
 #define PIO_WS_CLOCK_TICKS 15 // 16 khz
 
-#define DMA_CHANNEL 0           // Choose an available DMA channel
-#define AUDIO_BUFFER_MINI_SIZE 4000//3200
+#define DMA_CHANNEL 0           
+#define AUDIO_BUFFER_MINI_SIZE 4000
 #define AUDIO_BUFFER_COLLECTOR0_ID 0
 #define AUDIO_BUFFER_COLLECTOR1_ID 1
 
-#define I2S_PIO_FRQ_INT 36  //  } TOTAL AT 16khz WS and x64 AT SCK
-#define I2S_PIO_FRQ_DIV 140 //  }
+#define I2S_PIO_FRQ_INT 36   
+#define I2S_PIO_FRQ_DIV 140  
 
-// OUTPUT AUDIO
-#define AUDIO_SM 1
-#define AUDIO_PWM_PIN 26
-#define AUDIO_PIO_FRQ_INT 1172 // 4660
-#define AUDIO_PIO_FRQ_DIV 0    // 190
 
-// #define PIO_SCK_CLOCK_FREQ 460 // 3.07 Mhz
 
-#define ATTENUATION (0.000316227f) //! decent -70db attenuation
+
+#define ATTENUATION (0.000316227f) 
 
 
 #define run_cycle 4
