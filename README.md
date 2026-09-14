@@ -34,17 +34,25 @@ Create Impulse
 --------------
 
 |TIME SERIES DATA|
+
 Window Size: 1000ms
+
 Window Stride: 500ms
+
 Frequency: 16000 (16khz)
+
 Zero Pad data: ✅
+
 Handling multi-label samples: Use label at the end of window
+
 Train on data subset: 100%
 
 |Add a Processing block|
+
 Add processing block: Audio MFE
 
 |Add a learning block|
+
 Classification
 
 --------------
@@ -54,16 +62,19 @@ MFE
 Parameters
 
 Frame length: 0.06
+
 Frame stride: 0.015
+
 Filter number: 51
+
 FFT length: 512
+
 Low frequency: 80
+
 High frequency: 8000
+
 Noise floor (db): -100
-    ||
-  \ || /
-   \||/
-    \/
+
 Generate Features
 
 --------------
