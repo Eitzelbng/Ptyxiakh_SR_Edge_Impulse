@@ -129,4 +129,4 @@ IMPORTANT NOTES
 
 Note on Transmit.cpp line 304: In this example result.classification[5].value represents the class "silence". Pseudo-logic code was implemented as a filter for the recognition of undefined noisy background. Removing this segment and implementing your own logic based on your own needs is recommended.
 
-Pio synchronization at 16khz was achieved via trial and error through constant measurements via an oscilloscope, static values on Transmitter.cpp line 162 function (pio_sm_set_clkdiv_int_frac(pio0, STATE_MACHINE, 18, 79);) do not guarantee 16khz tick in all applications, altering the constant 18 and 79 values might be necessary).
+Pio synchronization at 16khz was achieved via trial and error through constant measurements via an oscilloscope, static values on Transmitter.cpp line 162 function (pio_sm_set_clkdiv_int_frac(pio0, STATE_MACHINE, 18, 79);) do not guarantee 16khz tick in all applications, altering the constant 18 and 79 values might be necessary.
