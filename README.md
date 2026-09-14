@@ -24,6 +24,9 @@ To create your own custom Edge Impulse library export please refer to official g
 After building your own custom Edge Impulse library you can import it by replacing 
 
 A) The contents of the Transit/Libraries/Edge_Impulse with the extracted contents of your own Edge model.
+
 B) All instances of tflite_learn_794595_164. In the main Transmit.cpp and CMakeLists.txt to your own generated tflite namefile (you can find it on your exported file in Edge_Impulse/tflite-model/(here)).
+
 C) Note in Main code line 304 , In this example result.classification[5].value represents silence. Pseudo-logic code was created as a filter for the recognition of undefined noisy background. Removing this segment and implementing your own logic based on your own needs is recommended.
+
 D) Pio synchronization at 16khz was achieved via trial and error through constant measurements via an oscilloscope, static values on Transmitter.cpp line 162 function (pio_sm_set_clkdiv_int_frac(pio0, STATE_MACHINE, 18, 79);) do not guarantee 16khz tick in all applications, altering the constant 18 and 79 values might be necessary).
