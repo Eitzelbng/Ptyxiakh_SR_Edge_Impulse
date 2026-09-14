@@ -17,7 +17,7 @@ This project incorporates and builds upon the following open-source software, li
 * **[pico-lora Library](https://github.com/akshayabali/pico-lora)**: The LoRa communication driver library developed by @akshayabali for the Raspberry Pi RP2040 microcontroller is embedded in this project. It is integrated under the terms of the **MIT License**.
 
 
-## Instructions on Importing Custom Edge-Impulse library export
+## Instructions 
 
 To create your own custom Edge Impulse library export please refer to official guides made by Edge Impulse.
 
@@ -80,28 +80,44 @@ Generate Features
 --------------
 Classifier
 --------------
+
 Neural Network Settings
 
 Number of training cycles: 150
+
 Learning rate: 0.003 
+
 Training processor: CPU
+
 Validation set size: 20%
+
 Batch size: 32
+
 Profile int8 model: ✅
 
 Neural network architecture
 
 Reshape layer (51 columns)
+
 2D conv / pool layer (8 filters, 3 kernel size, 1 layer)
+
 Dropout (rate 0.5)
+
 2D conv / pool layer (16 filters, 3 kernel size, 1 layer)
+
 Dropout (rate 0.5)
+
 Flatten layer
 
 --------------
 Deployment
 --------------
+
 Quantized (int8) => Build
+
+--------------
+Importing Custom Edge-Impulse library export
+--------------
  
 After building your own custom Edge Impulse library you can import it by replacing 
 
