@@ -25,7 +25,7 @@ After building your own custom Edge Impulse library you can import it by replaci
 
 A) The contents of the Transit/Libraries/Edge_Impulse with the extracted contents of your own Edge model.
 
-B) All instances of tflite_learn_794595_164. In the main Transmit.cpp and CMakeLists.txt to your own generated tflite namefile (you can find it on your exported file in Edge_Impulse/tflite-model/(here)).
+B) All instances of tflite_learn_794595_164. In the main files like Transmit.cpp and CMakeLists.txt to your own generated tflite namefile (you can find it on your exported file in Edge_Impulse/tflite-model/(here)).
 
 C) Note in Main code line 304 , In this example result.classification[5].value represents silence. Pseudo-logic code was created as a filter for the recognition of undefined noisy background. Removing this segment and implementing your own logic based on your own needs is recommended.
 
