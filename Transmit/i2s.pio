@@ -1,0 +1,117 @@
+
+
+.program i2s
+.side_set 3
+   pull         side 0b100 [0]       
+   out y,32     side 0b100 [0]  
+   nop          side 0b100 [0]
+   mov x,y      side 0b100 [0]
+.wrap_target
+
+   loop_ch_1:
+      nop       side 0b101 [3]
+   jmp x--, loop_ch_1 side 0b100[3]
+   nop          side 0b101 [3]
+   nop          side 0b100 [3]
+   mov x,y      side 0b101 [3]
+   nop          side 0b110 [3]
+;==SEPERATOR==
+   nop          side 0b111  [1]
+   in pins, 1   side 0b111 [1]
+   nop          side 0b110  [3]
+   loop_ch_2:
+      nop       side 0b111 [1]
+      in pins,1 side 0b111 [1]
+   jmp x--,  loop_ch_2 side 0b110[3]
+   nop           side 0b111 [1]
+   in pins,1     side 0b111 [1]
+   mov x,y      side 0b100 [3]
+.wrap
+
+
+
+;.program i2s
+;.side_set 3
+;    pull                side 0b111 [1] 
+;    out y, 32           side 0b111 [1] ; Y = 30
+;    mov x,y             side 0b100 [1] ;transition
+;.wrap_target
+;;==================================================
+;
+;  nop                   side 0b101     [1] ; pulse 1
+;  nop                   side 0b100     [1] ; pulse 1
+;   nop                  side 0b101     [0]
+;left_loop:                         
+;   nop                  side 0b101     [0]  
+;   nop                  side 0b100     [0]  
+;   nop                  side 0b100     [0]  ;
+;jmp x--, left_loop      side 0b101     [0]  ; pulses 2-31
+;   mov x,y              side 0b101     [0] 
+;   nop                  side 0b110     [0]  ;
+;   nop                  side 0b110     [0]  ; pulse 32 with transition
+;;===================================================   
+;   nop                  side 0b111     [1]
+;   nop                  side 0b110     [0]
+;   in pins,1            side 0b110     [0] ; read 1 
+;   nop                  side 0b111     [0]
+;right_loop:                       
+;   nop                  side 0b111     [0]
+;   in pins, 1           side 0b110     [0]
+;   nop                  side 0b110     [0]
+;jmp x--, right_loop     side 0b111     [0] ;read 31
+;   in pins, 1           side 0b111     [0] ;read 32
+;   nop                  side 0b100     [0] ;push block           side 0b100     [0]
+;   mov x,y              side 0b100     [0] ;transition
+;.wrap
+
+
+
+
+
+;.program i2s
+;;64ticks 16 bit depth
+;;==========================================================
+;.side_set 3 
+;    pull               side 0b111 [1]
+;    out y, 32          side 0b111 [3]
+;    mov x,y            side 0b111 [3]
+;.wrap_target
+;
+;freq_fill:         
+;    nop                    side 0b101 [0]               
+;    nop                    side 0b101 [0]
+;jmp x--,freq_fill          side 0b100 [1]
+;    mov x, y               side 0b101 [1]
+;    nop                    side 0b100 [1]
+;
+;freq_fill1:         
+;    nop                    side 0b101 [0]               
+;    nop                    side 0b101 [0]
+;jmp x--,freq_fill1         side 0b100 [1]
+;    mov x, y               side 0b101 [1]
+;    nop                    side 0b100 [1]
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;124 + 4 = 128 cycles
+;    nop                    side 0b111 [1]
+;    nop                    side 0b110 [1]
+;active_channel:         
+;    nop                    side 0b111 [0]
+;    in pins, 1             side 0b111 [0]    
+;jmp x--, active_channel    side 0b110 [1]
+;
+;    mov x, y               side 0b111 [0]
+;    in pins, 1             side 0b111 [0]
+;    jmp x--, ptr_redu      side 0b110 [0]
+;ptr_redu:
+;push block             side 0b110 [0]
+;active_channel1:        
+;    nop                    side 0b111 [1]    
+;jmp x--, active_channel1   side 0b110 [1]
+;    mov x, y               side 0b111 [1]
+;    nop                    side 0b110 [1]
+;    
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;124 + 4 = 128 cycles
+;.wrap
+
+
+
+
